@@ -17,6 +17,7 @@ amqp.connect("amqp://localhost", function (error0, connection) {
     const queue = "task_queue";
 
     channel.assertQueue(queue, {
+      // to keep the queue if RabbitMQ quits or crashes - durable: true
       durable: true,
     });
 
