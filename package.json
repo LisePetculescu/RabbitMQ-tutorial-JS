@@ -4,6 +4,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node src/send.js"
+    "publish": "node src/send.js",
+    "consume": "node src/recieve.js"
   }
 }
