@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "publish": "node src/send.js",
-    "consume": "node src/recieve.js"
+    "consume": "node src/recieve.js",
+    "newTask": "node src/new_task.js",
+    "worker": "node src/worker.js"
   }
 }
