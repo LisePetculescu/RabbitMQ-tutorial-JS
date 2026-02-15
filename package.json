@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "amqplib": "^0.10.9"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node hello-world/send.js"
+  }
+}
