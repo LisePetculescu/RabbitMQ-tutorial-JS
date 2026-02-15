@@ -20,13 +20,16 @@ amqp.connect("amqp://localhost", function (error0, connection) {
       // to keep the queue if RabbitMQ quits or crashes - durable: true
       durable: true,
     });
+    // prefetch makes sure a worker is only assigned the prefetch(number) 
+    // amount of tasks to perform once it is done with it's current task 
+    channel.prefetch(1);
+    console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
 
     // 03 - allow for messages to be consumed
     /*
-  Note: messages arrive async, so we need a callback, 
-  which will be executed when RabbitMQ pushes new messages from publishers.
-  */
-    console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
+     Note: messages arrive async, so we need a callback, 
+     which will be executed when RabbitMQ pushes new messages from publishers.
+   */
     channel.consume(
       queue,
       function (msg) {
@@ -47,3 +50,16 @@ amqp.connect("amqp://localhost", function (error0, connection) {
     );
   });
 });
+
+/*
+Note on message persistence (from tutorial)
+Marking messages as persistent doesn't fully guarantee that a message
+ won't be lost. Although it tells RabbitMQ to save the message to disk, 
+ there is still a short time window when RabbitMQ has accepted a message 
+ and hasn't saved it yet. 
+ 
+ Also, RabbitMQ doesn't do fsync(2) for every message 
+ -- it may be just saved to cache and not really written to the disk. 
+ The persistence guarantees aren't strong, but it's more than enough for our simple task queue. 
+ If you need a stronger guarantee then you can use publisher confirms.
+*/
