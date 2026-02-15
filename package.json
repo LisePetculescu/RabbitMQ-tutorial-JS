@@ -4,6 +4,6 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node hello-world/send.js"
+    "start": "node src/send.js"
   }
 }
