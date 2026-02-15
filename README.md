@@ -35,7 +35,7 @@ Expected output is that you will see the message from **send.js** be sent to **r
 
 ___
 
-### Part 2 - Send Message to Several Workers
+### Part 2 - Send Message to Several Workers (Work Queues)
 
 To run the second part of the tutorial open a terminal and write:
 #shell 1
@@ -58,7 +58,7 @@ npm run newTask Third message...
 npm run newTask Fourth message....
 npm run newTask Fifth message.....
 ```
-Note: optionally you can open more worker terminals, to see RabbitMQ devide the message queue between the workers. 
+Note: optionally you can open more worker terminals, to see RabbitMQ devide the message queue between more workers. 
 ___
 
 Author of this repo: Lise Petculescu
