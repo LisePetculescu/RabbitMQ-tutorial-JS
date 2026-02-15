@@ -6,7 +6,7 @@ ___
 
 * Having Node.js installed.
 
-* Having a RabbitMQ server running.
+* Having a RabbitMQ server installed and running.
     * I have a RabbitMQ server running in a docker container.
 The docker image can be found [here](https://www.rabbitmq.com/docs/download)
 
